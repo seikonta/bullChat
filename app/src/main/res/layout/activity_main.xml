@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeLayout"
+    android:id="@+id/HomeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -82,12 +82,13 @@
         app:layout_constraintTop_toBottomOf="@+id/HomeTitleTextView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/HomeBottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="#71513A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_item_home"/>
+        app:menu="@menu/bottom_navigation_item_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
