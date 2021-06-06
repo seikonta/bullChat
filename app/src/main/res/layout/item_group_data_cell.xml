@@ -27,13 +27,19 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/groupDataCellGroupTitleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:text="クラシック同好会"
-                    android:textSize="28sp" />
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/GroupDataCellGroupTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-black"
+                        android:singleLine="true"
+                        android:text="クラシック同好会"
+                        android:textSize="28sp" />
+                </HorizontalScrollView>
 
                 <View
                     android:id="@+id/GroupDataCellLine"
@@ -43,14 +49,22 @@
                     android:layout_marginBottom="8dp"
                     android:background="#F6DE5A" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/GroupDataCellGourpTagsRecyclerView"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/GroupTagChipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleLine="true" />
+
+                </HorizontalScrollView>
 
             </LinearLayout>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
