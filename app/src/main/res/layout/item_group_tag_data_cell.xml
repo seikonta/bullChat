@@ -7,5 +7,5 @@
     android:layout_height="wrap_content"
     android:text="クラシック"
     android:textColor="#747474"
-    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-    app:chipIcon="@drawable/outline_label_24" />
+    android:textSize="8sp"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />

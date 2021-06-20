@@ -7,53 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linearLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="30dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:layout_marginEnd="30dp"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="30dp"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:layout_marginEnd="30dp"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/homeTitleTextView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:fontFamily="sans-serif-black"-->
-<!--            android:text="HOME"-->
-<!--            android:textSize="45sp" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/homeTitleTextView"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:fontFamily="sans-serif-black"-->
+    <!--            android:text="HOME"-->
+    <!--            android:textSize="45sp" />-->
 
-<!--        &lt;!&ndash;        <Space&ndash;&gt;-->
-<!--        &lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
-<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--        &lt;!&ndash;            android:layout_weight="0" />&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <Space&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_weight="0" />&ndash;&gt;-->
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="70dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_gravity="right"-->
-<!--            app:cardCornerRadius="100dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_gravity="right"-->
+    <!--            app:cardCornerRadius="100dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--            app:layout_constraintRight_toRightOf="parent"-->
 
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/imageButton2"-->
-<!--                android:layout_width="70dp"-->
-<!--                android:layout_height="70dp"-->
-<!--                tools:srcCompat="@tools:sample/avatars" />-->
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/imageButton2"-->
+    <!--                android:layout_width="70dp"-->
+    <!--                android:layout_height="70dp"-->
+    <!--                tools:srcCompat="@tools:sample/avatars" />-->
 
-<!--        </androidx.cardview.widget.CardView>-->
+    <!--        </androidx.cardview.widget.CardView>-->
 
-<!--    </LinearLayout>-->
+    <!--    </LinearLayout>-->
 
     <TextView
         android:id="@+id/HomeTitleTextView"
@@ -85,7 +85,8 @@
         android:id="@+id/HomeBottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:background="#71513A"
+        android:background="@color/brown"
+        app:itemIconSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
