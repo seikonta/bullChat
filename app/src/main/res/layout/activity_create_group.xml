@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/CreateGroupTextBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/CreateGroupText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
@@ -25,6 +25,7 @@
             android:textSize="32sp" />
 
         <View
+            android:id="@+id/LineUnderText"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="5dp"
@@ -32,7 +33,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -44,24 +45,24 @@
         app:srcCompat="@drawable/outline_arrow_back_ios_24" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/GroupDetailBlock"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:paddingStart="32dp"
         android:paddingTop="50dp"
         android:paddingEnd="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/createGroupButton"
+        app:layout_constraintBottom_toTopOf="@+id/CreateGroupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/CreateGroupTextBlock">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/GroupNameTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="24">
+            app:counterMaxLength="18">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/GroupNameTextInputEditText"
@@ -74,12 +75,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/GroupIntroductionInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="180">
+            app:counterMaxLength="100">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/GroupIntroductionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-black"
@@ -89,13 +92,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:id="@+id/GroupTagsInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="5">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/GroupTagsEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -107,7 +111,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/createGroupButton"
+        android:id="@+id/CreateGroupButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

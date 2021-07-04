@@ -21,14 +21,14 @@ class GroupListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        groups.addAll(
-            listOf<Group>(
-                Group("クラシック同好会", listOf("クラシック", "音楽")),
-                Group("競プロ同好会", listOf("プログラミング", "競プロ", "競技プログラミング", "コンピュータ")),
-                Group("コンピュータ部", listOf("コンピュータ", "プログラミング")),
-                Group("クイズ研究会", listOf("早押し", "クイズ", "早押しクイズ", "同好会"))
-            )
-        )
+//        groups.addAll(
+//            listOf<Group>(
+//                Group("クラシック同好会", listOf("クラシック", "音楽")),
+//                Group("競プロ同好会", listOf("プログラミング", "競プロ", "競技プログラミング", "コンピュータ")),
+//                Group("コンピュータ部", listOf("コンピュータ", "プログラミング")),
+//                Group("クイズ研究会", listOf("早押し", "クイズ", "早押しクイズ", "同好会"))
+//            )
+//        )
 
         val adapter = GroupListAdapter(groups, requireActivity())
 

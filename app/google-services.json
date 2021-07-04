@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "725071922691",
+    "project_id": "bullchat-a2fbd",
+    "storage_bucket": "bullchat-a2fbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725071922691:android:f7df8765886636e84e7036",
+        "android_client_info": {
+          "package_name": "app.dev.kon.bullchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725071922691-2te6eevjmb5bc5bo1julfh48a6rt10c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAju8Z_BAsZizpX-OnITaUjwZiPR_tx6Zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725071922691-2te6eevjmb5bc5bo1julfh48a6rt10c8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
