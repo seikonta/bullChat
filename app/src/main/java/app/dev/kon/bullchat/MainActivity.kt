@@ -3,29 +3,40 @@ package app.dev.kon.bullchat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_group_list.*
 
 class MainActivity : AppCompatActivity() {
-
-    val groups = mutableListOf<Group>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        groups.addAll(
-                listOf<Group>(
-                        Group("クラシック同好会", listOf("クラシック", "音楽")),
-                        Group("競プロ同好会", listOf("プログラミング", "競プロ", "競技プログラミング", "コンピュータ")),
-                        Group("コンピュータ部", listOf("コンピュータ", "プログラミング")),
-                        Group("クイズ研究会", listOf("早押し", "クイズ", "早押しクイズ", "同好会"))
-                )
-        )
+        HomeBottomNavigationView.setOnNavigationItemSelectedListener {
+            true
+        }
 
-        val adapter = GroupListAdapter(groups, this)
+        val firstFragment = GroupListFragment()
 
-        HomeRecyclerView.adapter = adapter
-        HomeRecyclerView.layoutManager = LinearLayoutManager(this)
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.nav_home -> {
+                    replaceFragment(firstFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+
+    }
+
+    fun replaceFragment(fragemnt: Fragment) {
+        val fragmentMangaer = supportFragmentManager
+        val fragmentTransaction = fragmentMangaer.beginTransaction()
+        fragmentTransaction.replace(R.id.container, fragemnt)
+        fragmentTransaction.commit()
     }
 }
