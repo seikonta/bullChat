@@ -24,17 +24,18 @@ class CreateGroupActivity : AppCompatActivity() {
             var text : String;
             val duration = Toast.LENGTH_SHORT
             if (GroupNameTextInputEditText.text.toString() != "" && GroupIntroductionEditText.text.toString() != "" && GroupTagsEditText.toString() != "") {
-                val tagList =  listOf<String>(GroupTagsEditText.text.toString())
+//                val tagList =  listOf<String>(GroupTagsEditText.text.toString())
+                val tagList = GroupTagsEditText.text.toString().split(",", "、")
                 val group = Group(GroupNameTextInputEditText.text.toString(), GroupIntroductionEditText.text.toString(), tagList)
                 db.collection("groups").add(group)
                 text = "作成完了"
                 Toast.makeText(applicationContext, text, duration).show()
                 finish()
             }
-
-            text = "内容を全て埋めてください"
-            Toast.makeText(applicationContext, text, duration).show()
-
+            else {
+                text = "内容を全て埋めてください"
+                Toast.makeText(applicationContext, text, duration).show()
+            }
         }
     }
 }

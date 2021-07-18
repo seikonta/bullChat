@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="グループ作成"
+            android:text="投稿作成"
             android:textSize="32sp" />
 
         <View
@@ -62,7 +62,6 @@
             android:id="@+id/GroupNameTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:counterEnabled="true"
             app:counterMaxLength="24">
 
@@ -70,8 +69,9 @@
                 android:id="@+id/GroupNameTextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="グループ名を入力（ex.陸上部）"
+                android:hint="タイトルを入力"
                 android:singleLine="true"
+                android:theme="@style/EditTextColorControl"
                 android:textColor="#606060" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +79,6 @@
             android:id="@+id/GroupIntroductionInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:counterEnabled="true"
             app:counterMaxLength="100">
 
@@ -87,26 +86,10 @@
                 android:id="@+id/GroupIntroductionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:theme="@style/EditTextColorControl"
                 android:gravity="top"
-                android:hint="グループの紹介文を入力（ex.陸上部が集まるグループです。）"
+                android:hint="本文を入力"
                 android:textColor="#606060" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/GroupTagsInputTextLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
-            app:counterEnabled="true"
-            app:counterMaxLength="24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/GroupTagsEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="グループタグを入力（ex.陸上、部活動、短距離、長距離）"
-                android:textColor="#606060" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -120,7 +103,7 @@
         android:layout_marginBottom="60dp"
         android:background="@drawable/button_brown_shape"
         android:fontFamily="sans-serif-light"
-        android:text="CREATE"
+        android:text="POST"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"

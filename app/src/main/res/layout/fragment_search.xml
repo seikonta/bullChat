@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/SearchTitleTextView"
@@ -20,14 +20,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:id="@+id/SearchGroupView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/SearchInputText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:theme="@style/EditTextColorControl"
         app:layout_constraintEnd_toEndOf="@+id/SearchTitleTextView"
-        app:layout_constraintStart_toStartOf="@+id/SearchTitleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/SearchTitleTextView" />
+        app:layout_constraintStart_toEndOf="@+id/SearchButton"
+        app:layout_constraintTop_toBottomOf="@+id/SearchTitleTextView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/SearchInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="タグを入力後、虫眼鏡をタップ"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/SearchRecyclerView"
@@ -39,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SearchGroupView" />
+        app:layout_constraintTop_toBottomOf="@+id/SearchInputText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/SearchAddButton"
@@ -53,5 +62,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/SearchRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/outline_add_24" />
+
+    <ImageButton
+        android:id="@+id/SearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/SearchInputText"
+        app:layout_constraintStart_toStartOf="@+id/SearchTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/SearchInputText"
+        app:srcCompat="@drawable/baseline_search_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

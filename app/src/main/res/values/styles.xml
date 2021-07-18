@@ -1,0 +1,5 @@
+<resources>
+    <style name="EditTextColorControl">
+        <item name="colorControlActivated">@color/brown</item>
+    </style>
+</resources>

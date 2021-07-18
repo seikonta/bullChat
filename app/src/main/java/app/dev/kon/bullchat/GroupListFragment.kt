@@ -23,10 +23,10 @@ class GroupListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 //        groups.addAll(
 //            listOf<Group>(
-//                Group("クラシック同好会", listOf("クラシック", "音楽")),
-//                Group("競プロ同好会", listOf("プログラミング", "競プロ", "競技プログラミング", "コンピュータ")),
-//                Group("コンピュータ部", listOf("コンピュータ", "プログラミング")),
-//                Group("クイズ研究会", listOf("早押し", "クイズ", "早押しクイズ", "同好会"))
+//                Group("クラシック同好会", "k",listOf("クラシック", "音楽")),
+//                Group("競プロ同好会", "k",listOf("プログラミング", "競プロ", "競技プログラミング", "コンピュータ")),
+//                Group("コンピュータ部", "k",listOf("コンピュータ", "プログラミング")),
+//                Group("クイズ研究会", "k",listOf("早押し", "クイズ", "早押しクイズ", "同好会"))
 //            )
 //        )
 
