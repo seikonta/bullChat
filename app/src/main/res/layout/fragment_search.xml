@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/SearchTitleTextView"
@@ -15,6 +14,7 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="sans-serif-black"
         android:text="SEARCH"
+        android:textColor="@color/textColor"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:theme="@style/EditTextColorControl"
+        app:boxBackgroundColor="@color/clear"
         app:layout_constraintEnd_toEndOf="@+id/SearchTitleTextView"
         app:layout_constraintStart_toEndOf="@+id/SearchButton"
         app:layout_constraintTop_toBottomOf="@+id/SearchTitleTextView">
@@ -50,27 +51,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SearchInputText" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/SearchAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
-        app:backgroundTint="@color/white"
+        android:gravity="center"
+        android:text="CREATE"
+        android:textColor="@color/textColor"
+        app:backgroundTint="@color/floatingColor"
         app:fabSize="normal"
+        app:icon="@drawable/outline_add_24"
+        app:iconTint="@color/textColor"
         app:layout_constraintBottom_toBottomOf="@+id/SearchRecyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/outline_add_24" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/SearchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:backgroundTint="#00000000"
         app:layout_constraintBottom_toBottomOf="@+id/SearchInputText"
         app:layout_constraintStart_toStartOf="@+id/SearchTitleTextView"
         app:layout_constraintTop_toTopOf="@+id/SearchInputText"
-        app:srcCompat="@drawable/baseline_search_24" />
+        app:srcCompat="@drawable/baseline_search_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

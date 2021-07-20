@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/CreateGroupTextBlock"
@@ -23,6 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="グループ作成"
+            android:textColor="@color/textColor"
             android:textSize="32sp" />
 
         <View
@@ -33,17 +32,18 @@
             android:background="@color/yellow" />
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="50dp"
         android:clickable="true"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/floatingColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/outline_arrow_back_ios_24" />
+        app:icon="@drawable/outline_arrow_back_ios_24"
+        app:iconTint="@color/textColor"/>
 
     <LinearLayout
         android:id="@+id/GroupDetailBlock"
@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/EditTextColorControl"
+            app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="24">
 
@@ -80,8 +81,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/EditTextColorControl"
+            app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="150">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/GroupIntroductionEditText"
@@ -97,6 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/EditTextColorControl"
+            app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="24">
 

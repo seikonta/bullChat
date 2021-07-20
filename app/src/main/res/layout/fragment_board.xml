@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/GroupBoardTextBlock"
@@ -23,6 +22,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="クラシック同好会"
+            android:textColor="@color/textColor"
             android:textSize="32sp" />
 
         <View
@@ -33,17 +33,18 @@
             android:background="@color/yellow" />
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/BackToHomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="50dp"
         android:clickable="true"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/floatingColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/outline_arrow_back_ios_24" />
+        app:icon="@drawable/outline_arrow_back_ios_24"
+        app:iconTint="@color/textColor"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/GorupBoardRecyclerView"
@@ -57,17 +58,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GroupBoardTextBlock" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/MakePostingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
-        app:backgroundTint="@color/white"
+        android:text="POST"
+        android:textColor="@color/textColor"
+        app:backgroundTint="@color/floatingColor"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/outline_add_24" />
+        app:icon="@drawable/outline_add_24"
+        app:iconTint="@color/textColor"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

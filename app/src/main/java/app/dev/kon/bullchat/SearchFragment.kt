@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Toast
+import androidx.core.view.contains
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
@@ -65,5 +67,17 @@ class SearchFragment: Fragment() {
 
         SearchRecyclerView.adapter = adapter
         SearchRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+
+        adapter.itemClickListener = object : GroupListAdapter.OnItemClickListener {
+            override fun onItemClick(holder: GroupListViewHolder) {
+                val position = holder.adapterPosition
+                val msg = holder.nameTextView.text
+                Toast.makeText(
+                        context,
+                        msg,
+                        Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     }
 }

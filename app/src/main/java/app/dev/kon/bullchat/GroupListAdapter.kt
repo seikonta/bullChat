@@ -2,14 +2,24 @@ package app.dev.kon.bullchat
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 
-class GroupListAdapter(val groupList: List<Group>, val context: Context) : RecyclerView.Adapter<GroupListViewHolder>() {
+class GroupListAdapter(val groupList: List<Group>,
+                       val context: Context) : RecyclerView.Adapter<GroupListViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupListViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_group_data_cell, parent, false)
-        return GroupListViewHolder(view)
+        val holder = GroupListViewHolder(view)
+
+        view.setOnClickListener {
+            itemClickListener?.onItemClick(holder)
+        }
+
+        return holder
     }
 
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
@@ -30,5 +40,10 @@ class GroupListAdapter(val groupList: List<Group>, val context: Context) : Recyc
 
     override fun getItemCount(): Int {
         return groupList.size
+    }
+
+    var itemClickListener: OnItemClickListener? = null
+    interface OnItemClickListener {
+        fun onItemClick(holder: GroupListViewHolder)
     }
 }

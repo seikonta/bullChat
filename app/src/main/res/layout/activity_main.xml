@@ -17,6 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:itemIconTint="@drawable/bottom_navigation_item_state"
+        app:itemTextColor="@drawable/bottom_navigation_item_state"
         app:menu="@menu/bottom_navigation_item_home" />
 
     <androidx.fragment.app.FragmentContainerView

@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/white"
-        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/floatingColor"
         app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +42,7 @@
                         android:fontFamily="sans-serif-black"
                         android:singleLine="true"
                         android:text="クラシック同好会"
+                        android:textColor="@color/textColor"
                         android:textSize="24sp" />
                 </HorizontalScrollView>
 

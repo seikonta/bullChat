@@ -1,5 +1,5 @@
 <resources>
     <style name="EditTextColorControl">
-        <item name="colorControlActivated">@color/brown</item>
+        <item name="colorPrimary">@color/rippleColor</item>
     </style>
 </resources>
