@@ -1,5 +1,0 @@
-<resources>
-    <style name="EditTextColorControl">
-        <item name="colorPrimary">@color/rippleColor</item>
-    </style>
-</resources>

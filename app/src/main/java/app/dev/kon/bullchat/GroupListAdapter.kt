@@ -43,6 +43,7 @@ class GroupListAdapter(val groupList: List<Group>,
     }
 
     var itemClickListener: OnItemClickListener? = null
+
     interface OnItemClickListener {
         fun onItemClick(holder: GroupListViewHolder)
     }

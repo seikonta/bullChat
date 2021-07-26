@@ -54,6 +54,7 @@
         android:paddingStart="32dp"
         android:paddingTop="50dp"
         android:paddingEnd="32dp"
+        android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:layout_constraintBottom_toTopOf="@+id/CreateGroupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +64,6 @@
             android:id="@+id/GroupNameTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="24">
@@ -74,15 +74,13 @@
                 android:layout_height="wrap_content"
                 android:hint="タイトルを入力"
                 android:singleLine="true"
-                android:textColor="#606060"
-                android:theme="@style/EditTextColorControl" />
+                android:textColor="#606060"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/GroupIntroductionInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="100">
@@ -93,8 +91,7 @@
                 android:layout_height="match_parent"
                 android:gravity="top"
                 android:hint="本文を入力"
-                android:textColor="#606060"
-                android:theme="@style/EditTextColorControl" />
+                android:textColor="#606060" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>

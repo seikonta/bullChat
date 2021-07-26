@@ -20,6 +20,20 @@ class SearchFragment: Fragment() {
     val db = FirebaseFirestore.getInstance()
     val groups = mutableListOf<Group>()
 
+    val itemClickListner = object : GroupListAdapter.OnItemClickListener {
+        override fun onItemClick(holder: GroupListViewHolder) {
+            val group_name = groups[holder.adapterPosition].name
+            val group_intro = groups[holder.adapterPosition].introduction
+            val group_id = groups[holder.adapterPosition].id
+
+            var intent = Intent(activity, JoinGroupActivity::class.java)
+            intent.putExtra("name", group_name)
+            intent.putExtra("introduction", group_intro)
+            intent.putExtra("id", group_id)
+            startActivity(intent)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         contaier: ViewGroup?,
@@ -49,9 +63,10 @@ class SearchFragment: Fragment() {
                         countGroup += 1
                         Log.d(TAG, "${document.id} => ${document.data}")
                         var text = document["tags"].toString()
-                        groups.add(Group(document["name"].toString(), document["introduction"].toString(), text.substring(1, text.length-1).split(", ")))
+                        groups.add(Group(document["name"].toString(), document["introduction"].toString(), text.substring(1, text.length-1).split(", "), document.id))
                     }
                     val adapter = GroupListAdapter(groups, requireActivity())
+                    adapter.itemClickListener = itemClickListner
                     SearchRecyclerView.adapter = adapter
 
                     val duration = Toast.LENGTH_SHORT
@@ -68,16 +83,6 @@ class SearchFragment: Fragment() {
         SearchRecyclerView.adapter = adapter
         SearchRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
-        adapter.itemClickListener = object : GroupListAdapter.OnItemClickListener {
-            override fun onItemClick(holder: GroupListViewHolder) {
-                val position = holder.adapterPosition
-                val msg = holder.nameTextView.text
-                Toast.makeText(
-                        context,
-                        msg,
-                        Toast.LENGTH_LONG
-                ).show()
-            }
-        }
+        adapter.itemClickListener = itemClickListner
     }
 }

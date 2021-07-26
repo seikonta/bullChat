@@ -26,7 +26,7 @@ class CreateGroupActivity : AppCompatActivity() {
             if (GroupNameTextInputEditText.text.toString() != "" && GroupIntroductionEditText.text.toString() != "" && GroupTagsEditText.toString() != "") {
 //                val tagList =  listOf<String>(GroupTagsEditText.text.toString())
                 val tagList = GroupTagsEditText.text.toString().split(",", "、")
-                val group = Group(GroupNameTextInputEditText.text.toString(), GroupIntroductionEditText.text.toString(), tagList)
+                val group = Group(GroupNameTextInputEditText.text.toString(), GroupIntroductionEditText.text.toString(), tagList, "")
                 db.collection("groups").add(group)
                 text = "作成完了"
                 Toast.makeText(applicationContext, text, duration).show()

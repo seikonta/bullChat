@@ -16,14 +16,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/JoinGroupText"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="クラシック同好会"
-            android:textColor="@color/textColor"
-            android:textSize="32sp" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/JoinGroupText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-black"
+                android:singleLine="true"
+                android:text="クラシック同好会"
+                android:textColor="@color/textColor"
+                android:textSize="32sp" />
+        </HorizontalScrollView>
 
         <View
             android:id="@+id/LineUnderText"

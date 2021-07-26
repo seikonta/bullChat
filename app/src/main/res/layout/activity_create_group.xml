@@ -53,6 +53,7 @@
         android:paddingStart="32dp"
         android:paddingTop="50dp"
         android:paddingEnd="32dp"
+        android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:layout_constraintBottom_toTopOf="@+id/CreateGroupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +63,6 @@
             android:id="@+id/GroupNameTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="24">
@@ -80,7 +80,6 @@
             android:id="@+id/GroupIntroductionInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="150">
@@ -98,7 +97,6 @@
             android:id="@+id/GroupTagsInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/EditTextColorControl"
             app:boxBackgroundColor="@color/clear"
             app:counterEnabled="true"
             app:counterMaxLength="24">
