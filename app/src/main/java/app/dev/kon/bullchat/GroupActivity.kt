@@ -22,6 +22,7 @@ class GroupActivity: AppCompatActivity() {
         val name = intent.getStringExtra("name")
         val id = intent.getStringExtra("id")
 
+
         if (name != null) {
             GroupBoardText.text = name
         }

@@ -64,9 +64,10 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/groupFragmentContainerView"
-        android:name="app.dev.kon.bullchat.GroupListFragment"
+        android:name="app.dev.kon.bullchat.BoardFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/GroupBottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

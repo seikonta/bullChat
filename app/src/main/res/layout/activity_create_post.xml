@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/CreateGroupTextBlock"
+        android:id="@+id/CreatePostTextBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/CreateGroupText"
+            android:id="@+id/CreatePostText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
@@ -47,7 +47,7 @@
         app:iconTint="@color/textColor"/>
 
     <LinearLayout
-        android:id="@+id/GroupDetailBlock"
+        android:id="@+id/PostDetailBlock"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -55,13 +55,13 @@
         android:paddingTop="50dp"
         android:paddingEnd="32dp"
         android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        app:layout_constraintBottom_toTopOf="@+id/CreateGroupButton"
+        app:layout_constraintBottom_toTopOf="@+id/CreatePostButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CreateGroupTextBlock">
+        app:layout_constraintTop_toBottomOf="@+id/CreatePostTextBlock">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/GroupNameTextInputLayout"
+            android:id="@+id/PostTitleTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/clear"
@@ -69,7 +69,7 @@
             app:counterMaxLength="24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/GroupNameTextInputEditText"
+                android:id="@+id/PostTitleTextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="タイトルを入力"
@@ -78,7 +78,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/GroupIntroductionInputTextLayout"
+            android:id="@+id/PostContentInputTextLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/clear"
@@ -86,7 +86,7 @@
             app:counterMaxLength="100">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/GroupIntroductionEditText"
+                android:id="@+id/PostContentEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="top"
@@ -97,7 +97,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/CreateGroupButton"
+        android:id="@+id/CreatePostButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
