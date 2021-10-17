@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_group.*
 
 class CreateGroupActivity : AppCompatActivity() {
@@ -15,7 +13,7 @@ class CreateGroupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_group)
 
-        BackButton.setOnClickListener {
+        BackFromPostButton.setOnClickListener {
             finish()
         }
 
@@ -23,10 +21,17 @@ class CreateGroupActivity : AppCompatActivity() {
             // データをFirestoreに渡す
             var text : String;
             val duration = Toast.LENGTH_SHORT
-            if (GroupNameTextInputEditText.text.toString() != "" && GroupIntroductionEditText.text.toString() != "" && GroupTagsEditText.toString() != "") {
+            if (GroupNameTextInputEditText.text.toString() != "" && GroupIntroductionEditText.text.toString() != "") {
 //                val tagList =  listOf<String>(GroupTagsEditText.text.toString())
-                val tagList = GroupTagsEditText.text.toString().split(",", "、")
                 val newGroupDoc = db.collection("groups").document()
+                val tagList: MutableList<String>
+                if (GroupTagsEditText.text.toString() != "") {
+                    tagList = GroupTagsEditText.text.toString().split(",", "、") as MutableList<String>
+                    tagList += mutableListOf(newGroupDoc.id)
+                }
+                else {
+                    tagList = mutableListOf(newGroupDoc.id)
+                }
                 val group = Group(GroupNameTextInputEditText.text.toString(), GroupIntroductionEditText.text.toString(), tagList, newGroupDoc.id)
                 newGroupDoc.set(group)
                 text = "作成完了"
@@ -34,7 +39,7 @@ class CreateGroupActivity : AppCompatActivity() {
                 finish()
             }
             else {
-                text = "内容を全て埋めてください"
+                text = "グループ名と紹介文を埋めてください"
                 Toast.makeText(applicationContext, text, duration).show()
             }
         }

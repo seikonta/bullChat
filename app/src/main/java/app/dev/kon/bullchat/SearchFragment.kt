@@ -7,9 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Toast
-import androidx.core.view.contains
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,7 +18,7 @@ class SearchFragment: Fragment() {
     val db = FirebaseFirestore.getInstance()
     val groups = mutableListOf<Group>()
 
-    val itemClickListner = object : GroupListAdapter.OnItemClickListener {
+    val itemClickListener = object : GroupListAdapter.OnItemClickListener {
         override fun onItemClick(holder: GroupListViewHolder) {
             val group_name = groups[holder.adapterPosition].name
             val group_intro = groups[holder.adapterPosition].introduction
@@ -65,16 +63,30 @@ class SearchFragment: Fragment() {
                         var text = document["tags"].toString()
                         groups.add(Group(document["name"].toString(), document["introduction"].toString(), text.substring(1, text.length-1).split(", "), document.id))
                     }
-                    val adapter = GroupListAdapter(groups, requireActivity())
-                    adapter.itemClickListener = itemClickListner
-                    SearchRecyclerView.adapter = adapter
-
                     val duration = Toast.LENGTH_SHORT
                     Toast.makeText(context, countGroup.toString()+"個のグループが見つかりました", duration).show()
                 }
                 .addOnFailureListener { exception ->
                     Log.w(TAG, "Error getting documents: ", exception)
                 }
+
+//            val query_ = db.collection("groups").whereEqualTo("id", SearchInputEditText.text.toString())
+////            O9QKMDZU75IEyckze5hN
+//            query_
+//                .get()
+//                .addOnSuccessListener { documents ->
+//                    for (document in documents) {
+//                        countGroup += 1
+//                        var text = document["tags"].toString()
+//                        groups.add(Group(document["name"].toString(), document["introduction"].toString(), text.substring(1, text.length-1).split(", "), document.id))
+//                    }
+//                    val adapter = GroupListAdapter(groups, requireActivity())
+//                    adapter.itemClickListener = itemClickListener
+//                    SearchRecyclerView.adapter = adapter
+//                }
+//                .addOnFailureListener { exception ->
+//                    Log.w(TAG, "Error getting documents: ", exception)
+//                }
 
         }
 
@@ -83,6 +95,6 @@ class SearchFragment: Fragment() {
         SearchRecyclerView.adapter = adapter
         SearchRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
-        adapter.itemClickListener = itemClickListner
+        adapter.itemClickListener = itemClickListener
     }
 }

@@ -5,46 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/GroupBoardTextBlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="70dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/GroupBoardTextBlock"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="120dp"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <TextView
-            android:id="@+id/GroupBoardText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="クラシック同好会"
-            android:textColor="@color/textColor"
-            android:textSize="32sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/GroupBoardText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="sans-serif-black"-->
+<!--            android:text="クラシック同好会"-->
+<!--            android:textColor="@color/textColor"-->
+<!--            android:textSize="32sp" />-->
 
-        <View
-            android:id="@+id/LineUnderBoardText"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/yellow" />
-    </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/BackToHomeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
-        android:clickable="true"
-        app:backgroundTint="@color/floatingColor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:icon="@drawable/outline_arrow_back_ios_24"
-        app:iconTint="@color/textColor"/>
+<!--        <View-->
+<!--            android:id="@+id/LineUnderBoardText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="3dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:background="@color/yellow" />-->
+<!--    </LinearLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/GorupBoardRecyclerView"
@@ -65,13 +52,14 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:gravity="center"
         android:text="POST"
-        android:textColor="@color/textColor"
-        app:backgroundTint="@color/floatingColor"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/bottomColor"
         app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:icon="@drawable/outline_add_24"
-        app:iconTint="@color/textColor"/>
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/GorupBoardRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

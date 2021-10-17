@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_group_list.*
 
 class MainActivity : AppCompatActivity() {
-    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun replaceFragment(fragemnt: Fragment) {
+    private fun replaceFragment(fragemnt: Fragment) {
         val fragmentMangaer = supportFragmentManager
         val fragmentTransaction = fragmentMangaer.beginTransaction()
         fragmentTransaction.replace(R.id.groupFragmentContainerView, fragemnt)
