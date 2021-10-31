@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_create_post.*
 import java.time.LocalDateTime
+import java.util.*
 
 class CreatePostActivity: AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -39,7 +40,7 @@ class CreatePostActivity: AppCompatActivity() {
         val post = Post(
             Title = title,
             Content = content,
-            PostDate = LocalDateTime.now()
+            PostDate = Date()
         )
 
         if (id != null) {

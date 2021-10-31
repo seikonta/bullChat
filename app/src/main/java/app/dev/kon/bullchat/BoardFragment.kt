@@ -11,11 +11,14 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.fragment_board.*
 import java.time.LocalDateTime
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BoardFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,7 +49,7 @@ class BoardFragment: Fragment() {
             db.collection("groups")
                 .document(groupId)
                 .collection("posts")
-                .orderBy("PostDate", Query.Direction.DESCENDING)
+                .orderBy("postDate", Query.Direction.DESCENDING)
                 .addSnapshotListener { value, error ->
                     if (error != null) {
                         Log.w("Firestore", "Listen Failed", error)
@@ -56,8 +59,11 @@ class BoardFragment: Fragment() {
                     posts.clear()
                     if (value != null) {
                         for (doc in value) {
-                            var post = doc.toObject<Post>()
-
+//                            var post = doc.toObject<Post>()
+                            var post = Post(Content = doc["content"] as String,
+                                Title = doc["title"] as String,
+                                PostDate = (doc["postDate"] as Timestamp).toDate()
+                            )
                             Log.d("post", post.toString())
                             posts.add(post)
                         }

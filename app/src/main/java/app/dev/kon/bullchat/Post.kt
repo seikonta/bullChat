@@ -9,5 +9,5 @@ data class Post(
     var id: String = "",
     var Title: String = "",
     var Content: String = "",
-    val PostDate: LocalDateTime = LocalDateTime.now()
+    var PostDate: Date = Date()
 )
