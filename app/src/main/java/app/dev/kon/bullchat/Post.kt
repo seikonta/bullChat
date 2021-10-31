@@ -6,8 +6,8 @@ import java.util.*
 
 data class Post(
     @DocumentId
-    val id: String = "",
-    val Title: String,
-    val Content: String,
-    val PostDate: LocalDateTime
+    var id: String = "",
+    var Title: String = "",
+    var Content: String = "",
+    val PostDate: LocalDateTime = LocalDateTime.now()
 )
