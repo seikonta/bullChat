@@ -25,25 +25,41 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/bottomColor"
         android:clickable="true"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_send_24"
         app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/chattingEditText"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:hint="チャット内容を入力"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/bottomColor"
+        app:cardCornerRadius="20dp"
+        app:contentPadding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toStartOf="@+id/chattingFAB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/chattingFAB" />
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/chattingFAB">
+
+        <EditText
+            android:id="@+id/chattingEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bottomColor"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="チャット内容を入力"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
