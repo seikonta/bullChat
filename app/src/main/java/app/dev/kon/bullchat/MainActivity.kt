@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val homeFragment = GroupListFragment()
         val searchFragment = SearchFragment()
+        val accountFragment = AccountFragment()
 
         val listner = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when(item.itemId) {
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_search -> {
                     replaceFragment(searchFragment)
+                    true
+                }
+                R.id.nav_account -> {
+                    replaceFragment(accountFragment)
                     true
                 }
                 else -> false

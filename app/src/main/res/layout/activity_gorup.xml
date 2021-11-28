@@ -18,7 +18,8 @@
         app:backgroundTint="@color/floatingColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:icon="@drawable/outline_arrow_back_ios_24" />
+        app:icon="@drawable/outline_arrow_back_ios_24"
+        app:iconTint="@color/textColor"/>
 
     <LinearLayout
         android:id="@+id/GroupBoardTextBlock"
