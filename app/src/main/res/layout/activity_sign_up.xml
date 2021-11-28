@@ -53,6 +53,7 @@
         app:iconTint="@color/textColor"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/SignUpShapeCardView"
         android:layout_width="220dp"
         android:layout_height="220dp"
         app:cardCornerRadius="110dp"
@@ -62,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/SignUpTextBlock">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/AccountSignUpImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:srcCompat="@tools:sample/avatars" />
