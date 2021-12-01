@@ -60,7 +60,7 @@
         android:paddingStart="32dp"
         android:paddingTop="50dp"
         android:paddingEnd="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/JoinGroupButton"
+        app:layout_constraintBottom_toTopOf="@+id/GoSignUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/JoinGroupTextBlock">
@@ -87,7 +87,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/JoinGroupButton"
+        android:id="@+id/GoSignUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

@@ -24,7 +24,7 @@ class JoinGroupActivity: AppCompatActivity() {
             finish()
         }
 
-        JoinGroupButton.setOnClickListener {
+        GoSignUpButton.setOnClickListener {
             joinGroupAndFinish(group_id!!)
         }
     }
