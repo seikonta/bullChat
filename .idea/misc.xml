@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/fragment_chat.xml" value="0.25" />
+        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/activity_account.xml" value="0.42864583333333334" />
+        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/activity_create_group.xml" value="0.5674818840579711" />
+        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/fragment_account.xml" value="0.4583333333333333" />
+        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/fragment_chat.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/drawable-v24/baseline_send_24.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/bottom_nav_shape.xml" value="0.38958333333333334" />

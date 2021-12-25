@@ -21,6 +21,7 @@
         <activity android:name=".JoinGroupActivity"></activity>
         <activity android:name=".CreateGroupActivity"></activity>
         <activity android:name=".CreatePostActivity"></activity>
+        <activity android:name=".AccountActivity"></activity>
     </application>
 
 </manifest>
