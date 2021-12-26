@@ -1,18 +1,23 @@
 package app.dev.kon.bullchat
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_account.*
 
 class AccountActivity: AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +62,24 @@ class AccountActivity: AppCompatActivity() {
 
                                 val user = auth.currentUser
                                 Toast.makeText(this, "サインアップが完了しました", Toast.LENGTH_SHORT).show()
+
+//                                val profileUpdate = userProfileChangeRequest {
+//                                    displayName = user!!.uid
+//                                    photoUri = Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png")
+//                                }
+//
+//                                user!!.updateProfile(profileUpdate)
+//                                    .addOnCompleteListener { task ->
+//                                        if (task.isSuccessful) {
+//                                            Log.d("auth", "set profile successfully")
+//                                        }
+//                                    }
+
+                                db.collection("users")
+                                    .document(user!!.uid)
+                                    .set(hashMapOf("name" to user!!.uid))
+
+//                                replaceFragment(LoginedFragment())
                                 finish()
 
                             } else {
@@ -87,6 +110,7 @@ class AccountActivity: AppCompatActivity() {
                         if (task.isSuccessful) {
                             Log.d("auth", "sign in successful")
                             Toast.makeText(this, "ログインに成功しました", Toast.LENGTH_SHORT).show()
+//                            replaceFragment(LoginedFragment())
                             finish()
                         } else {
                             Log.e("auth", "ERROR: Log in failed")
@@ -99,5 +123,12 @@ class AccountActivity: AppCompatActivity() {
             }
         }
     }
+
+//    private fun replaceFragment(fragemnt: Fragment) {
+//        val fragmentMangaer = MainActivity().supportFragmentManager
+//        val fragmentTransaction = fragmentMangaer.beginTransaction()
+//        fragmentTransaction.replace(R.id.groupFragmentContainerView, fragemnt)
+//        fragmentTransaction.commit()
+//    }
 
 }

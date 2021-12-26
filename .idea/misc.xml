@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/activity_account.xml" value="0.42864583333333334" />
         <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/activity_create_group.xml" value="0.5674818840579711" />
+        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/activity_sign_in.xml" value="0.7" />
+        <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/activity_sign_up.xml" value="0.7" />
         <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/fragment_account.xml" value="0.4583333333333333" />
         <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/fragment_chat.xml" value="0.4583333333333333" />
         <entry key="..\:/Users/staka/AndroidStudioProjects/bullChat/app/src/main/res/layout/fragment_logined.xml" value="0.5647644927536232" />

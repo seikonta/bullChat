@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
@@ -20,6 +22,7 @@ import kotlin.collections.ArrayList
 class ChatFragment: Fragment() {
     val db = FirebaseFirestore.getInstance()
     var chatMessages: ArrayList<Chat> = ArrayList()
+    var auth: FirebaseAuth = Firebase.auth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_chat, container, false)
@@ -49,28 +52,31 @@ class ChatFragment: Fragment() {
     }
 
     private fun sendChat(content: String, groupId: String) {
-        val userName = "UserName"
+        val user = auth.currentUser
+        if (user != null) {
+            val userName = user!!.uid
 
-        val chat: Chat = Chat(
-            UserName = userName,
-            ChatContent = content,
-            ChatDate = Date()
-        )
+            val chat: Chat = Chat(
+                UserName = userName,
+                ChatContent = content,
+                ChatDate = Date()
+            )
 
-        if (id != null) {
-            db.collection("groups")
-                .document(groupId)
-                .collection("chat")
-                .add(chat)
-                .addOnFailureListener { e ->
-                    Log.e("Firestore", "Error on sending chatting message", e)
-                }
+            if (id != null) {
+                db.collection("groups")
+                    .document(groupId)
+                    .collection("chat")
+                    .add(chat)
+                    .addOnFailureListener { e ->
+                        Log.e("Firestore", "Error on sending chatting message", e)
+                    }
+            }
+
+            chattingEditText.text.clear()
         }
-
-        chattingEditText.text.clear()
     }
 
-    fun readChatMessages(groupId: String) {
+    private fun readChatMessages(groupId: String) {
         db.collection("groups")
             .document(groupId)
             .collection("chat")
@@ -82,13 +88,51 @@ class ChatFragment: Fragment() {
                     if (value != null) {
                         for (mes in value) {
 
-                            val message = Chat(
-                                UserName = mes["userName"] as String,
-                                ChatContent = mes["chatContent"] as String,
-                                ChatDate = (mes["chatDate"] as Timestamp).toDate()
-                            )
+                            val uid = mes["userName"] as String
 
-                            chatMessages.add(message)
+                            db.collection("users")
+                                .document(uid)
+                                .get()
+                                .addOnSuccessListener { doc ->
+                                    var userName: String
+//                                    if (doc != null) {
+                                        userName = doc["name"] as String
+
+                                        val message = Chat(
+                                            UserName = userName,
+                                            ChatContent = mes["chatContent"] as String,
+                                            ChatDate = (mes["chatDate"] as Timestamp).toDate()
+                                        )
+                                        Log.d("content", message.toString())
+
+                                        chatMessages.add(message)
+                                        Log.d("chat", "load chat successfully")
+//                                    }
+//                                    else {
+//                                        userName = "削除されたアカウントです"
+//
+//                                        val message = Chat(
+//                                            UserName = userName,
+//                                            ChatContent = mes["chatContent"] as String,
+//                                            ChatDate = (mes["chatDate"] as Timestamp).toDate()
+//                                        )
+//
+//                                        chatMessages.add(message)
+//                                    }
+
+
+                                }
+                                .addOnFailureListener {
+                                    Toast.makeText(requireContext(), "送信に失敗しました", Toast.LENGTH_SHORT).show()
+                                }
+
+//                            val message = Chat(
+//                                UserName = mes["userName"] as String,
+//                                ChatContent = mes["chatContent"] as String,
+//                                ChatDate = (mes["chatDate"] as Timestamp).toDate()
+//                            )
+
+//                            chatMessages.add(message)
 
                         }
                     }
