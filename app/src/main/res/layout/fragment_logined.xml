@@ -7,7 +7,7 @@
     android:backgroundTint="@color/bottomColor">
 
     <TextView
-        android:id="@+id/AccountTitleTextView"
+        android:id="@+id/LoginedAccountTitleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -34,12 +34,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/GoSignUpButton"
+            android:id="@+id/SaveChangesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_brown_shape"
             android:fontFamily="sans-serif-light"
-            android:text="SIGN UP"
+            android:text="変更を保存"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -48,14 +48,55 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/GoLogInButton"
+            android:id="@+id/SignOutButton"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/floatingColor"
-            android:text="SIGN IN"
+            android:text="SIGN OUT"
             android:textColor="@color/textColor"
             android:textSize="16sp" />
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginedAccountTitleTextView">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/UserNameTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:boxBackgroundColor="@color/clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/UserNameTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ユーザーネーム"
+            android:singleLine="true"
+            android:text="User Name"
+            android:textColor="#606060" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
