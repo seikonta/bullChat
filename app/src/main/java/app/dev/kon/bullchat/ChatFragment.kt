@@ -95,7 +95,7 @@ class ChatFragment: Fragment() {
                                 .get()
                                 .addOnSuccessListener { doc ->
                                     var userName: String
-//                                    if (doc != null) {
+                                    if (doc.exists()) {
                                         userName = doc["name"] as String
 
                                         val message = Chat(
@@ -107,18 +107,19 @@ class ChatFragment: Fragment() {
 
                                         chatMessages.add(message)
                                         Log.d("chat", "load chat successfully")
-//                                    }
-//                                    else {
-//                                        userName = "削除されたアカウントです"
-//
-//                                        val message = Chat(
-//                                            UserName = userName,
-//                                            ChatContent = mes["chatContent"] as String,
-//                                            ChatDate = (mes["chatDate"] as Timestamp).toDate()
-//                                        )
-//
-//                                        chatMessages.add(message)
-//                                    }
+                                        setRecyclerView()
+                                    }
+                                    else {
+                                        userName = "削除されたアカウントです"
+
+                                        val message = Chat(
+                                            UserName = userName,
+                                            ChatContent = mes["chatContent"] as String,
+                                            ChatDate = (mes["chatDate"] as Timestamp).toDate()
+                                        )
+
+                                        chatMessages.add(message)
+                                    }
 
 
                                 }
@@ -136,7 +137,7 @@ class ChatFragment: Fragment() {
 
                         }
                     }
-                    setRecyclerView()
+//                    setRecyclerView()
                 }
                 else {
                     Log.e("Firestore", "Error on reading chatting messages",error)
