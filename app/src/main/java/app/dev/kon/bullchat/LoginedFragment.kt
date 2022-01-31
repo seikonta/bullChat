@@ -1,5 +1,6 @@
 package app.dev.kon.bullchat
 
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +15,15 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.fragment_logined.*
+import kotlin.math.log
 
 class LoginedFragment: Fragment() {
     private lateinit var auth: FirebaseAuth
     val db = Firebase.firestore
+    lateinit var storage: FirebaseStorage
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,9 +37,14 @@ class LoginedFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = Firebase.auth
+        storage = Firebase.storage
 
         var user = auth.currentUser
         var uid = user!!.uid
+
+        val storageRef = storage.reference
+        val iconFolderRef = storageRef.child("icons")
+        var iconRef = iconFolderRef.child(uid + ".png")
 
         val docRef = db.collection("users").document(uid)
 
@@ -47,7 +57,14 @@ class LoginedFragment: Fragment() {
             }
         }
 
-        UserAccountImageView.setImageURI(Uri.parse(user!!.photoUrl.toString()))
+        val ONE_MEAGABYTE: Long = 1024*1024
+
+        iconRef.getBytes(ONE_MEAGABYTE).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+            UserAccountImageView.setImageBitmap(bitmap)
+        }
+
+//        UserAccountImageView.setImageURI(Uri.parse(user!!.photoUrl.toString()))
 
         SaveChangesButton.setOnClickListener {
             docRef.set(hashMapOf("name" to UserNameTextInputEditText.text.toString()))

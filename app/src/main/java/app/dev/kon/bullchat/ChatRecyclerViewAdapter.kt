@@ -18,6 +18,13 @@ class ChatRecyclerViewAdapter(var chatList: List<Chat>, val context: Context):
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
         holder.UserNameView.text = chatList[position].UserName
         holder.ChatContentView.text = chatList[position].ChatContent
+
+        if (chatList[position].IconImage != null) {
+            holder.UserImageView.setImageBitmap(chatList[position].IconImage)
+        }
+        else {
+            holder.UserImageView.setImageResource(R.drawable.baseline_account_circle_black_48)
+        }
     }
 
     override fun getItemCount(): Int {

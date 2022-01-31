@@ -15,23 +15,26 @@
         <entry key="app/src/main/res/drawable/bottom_nav_shape.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/bottom_navigation_item_state.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/button_brown_shape.xml" value="0.38958333333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/outline_add_24.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/outline_arrow_back_ios_24.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/layout/activity_create_group.xml" value="0.25818673469698805" />
         <entry key="app/src/main/res/layout/activity_create_post.xml" value="0.2586050724637681" />
         <entry key="app/src/main/res/layout/activity_gorup.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/layout/activity_join_group.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_board.xml" value="0.1887031408308004" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.2586050724637681" />
         <entry key="app/src/main/res/layout/fragment_group_list.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/item_board_data_cell.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/layout/item_chat_data_cell.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/item_group_data_cell.xml" value="0.2916666666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

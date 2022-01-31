@@ -1,5 +1,7 @@
 package app.dev.kon.bullchat
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +17,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.fragment_chat.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -23,6 +27,10 @@ class ChatFragment: Fragment() {
     val db = FirebaseFirestore.getInstance()
     var chatMessages: ArrayList<Chat> = ArrayList()
     var auth: FirebaseAuth = Firebase.auth
+    var storage: FirebaseStorage = Firebase.storage
+    var userToBitmapMap: MutableMap<String, Bitmap> = mutableMapOf("commonIcon" to BitmapFactory.decodeResource(context?.resources ,R.drawable.baseline_account_circle_black_48))
+    var commonUserBitmap: Bitmap? = userToBitmapMap["commonIcon"]
+    val ONE_MEGABYTE: Long = 1024*1024
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_chat, container, false)
@@ -35,6 +43,11 @@ class ChatFragment: Fragment() {
 
         if (groupId != null) {
             readChatMessages(groupId)
+        }
+
+        storage.reference.child("icons/commonUser.png").getBytes(ONE_MEGABYTE).addOnSuccessListener {
+//            commonUserBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+            commonUserBitmap = null
         }
 
         chattingFAB.setOnClickListener {
@@ -66,7 +79,11 @@ class ChatFragment: Fragment() {
                 db.collection("groups")
                     .document(groupId)
                     .collection("chat")
-                    .add(chat)
+                    .add(hashMapOf(
+                        "chatContent" to chat.ChatContent,
+                        "chatDate" to chat.ChatDate,
+                        "userName" to chat.UserName
+                    ))
                     .addOnFailureListener { e ->
                         Log.e("Firestore", "Error on sending chatting message", e)
                     }
@@ -77,6 +94,9 @@ class ChatFragment: Fragment() {
     }
 
     private fun readChatMessages(groupId: String) {
+        val storageReference = storage.reference
+        val iconRef = storageReference.child("icons")
+
         db.collection("groups")
             .document(groupId)
             .collection("chat")
@@ -98,11 +118,27 @@ class ChatFragment: Fragment() {
                                     if (doc.exists()) {
                                         userName = doc["name"] as String
 
-                                        val message = Chat(
+                                        var message = Chat(
                                             UserName = userName,
                                             ChatContent = mes["chatContent"] as String,
                                             ChatDate = (mes["chatDate"] as Timestamp).toDate()
                                         )
+
+                                        if (userToBitmapMap[uid] != null) {
+                                            message.IconImage = userToBitmapMap[uid]
+                                        }
+                                        else {
+                                            val chatIconRef = iconRef.child(uid+".png")
+
+                                            chatIconRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {
+                                                val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+                                                message.IconImage = bitmap
+                                                userToBitmapMap.put(uid, bitmap)
+                                            }.addOnFailureListener {
+                                                message.IconImage = commonUserBitmap
+                                            }
+                                        }
+
                                         Log.d("content", message.toString())
 
                                         chatMessages.add(message)
@@ -115,7 +151,8 @@ class ChatFragment: Fragment() {
                                         val message = Chat(
                                             UserName = userName,
                                             ChatContent = mes["chatContent"] as String,
-                                            ChatDate = (mes["chatDate"] as Timestamp).toDate()
+                                            ChatDate = (mes["chatDate"] as Timestamp).toDate(),
+                                            IconImage = commonUserBitmap
                                         )
 
                                         chatMessages.add(message)
