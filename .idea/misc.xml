@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/outline_add_24.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/drawable/outline_arrow_back_ios_24.xml" value="0.38958333333333334" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.2821557971014493" />
         <entry key="app/src/main/res/layout/activity_create_group.xml" value="0.25818673469698805" />
         <entry key="app/src/main/res/layout/activity_create_post.xml" value="0.2586050724637681" />
         <entry key="app/src/main/res/layout/activity_gorup.xml" value="0.2916666666666667" />
@@ -29,7 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_group_list.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/item_board_data_cell.xml" value="0.2916666666666667" />
-        <entry key="app/src/main/res/layout/item_chat_data_cell.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/item_chat_data_cell.xml" value="0.5159444173177083" />
         <entry key="app/src/main/res/layout/item_group_data_cell.xml" value="0.2916666666666667" />
       </map>
     </option>
