@@ -90,6 +90,7 @@ class ChatFragment: Fragment() {
             }
 
             chattingEditText.text.clear()
+            setRecyclerView()
         }
     }
 

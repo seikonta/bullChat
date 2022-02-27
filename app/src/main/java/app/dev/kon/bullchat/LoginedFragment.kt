@@ -18,6 +18,7 @@ import androidx.media.MediaBrowserServiceCompat.RESULT_OK
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
@@ -82,8 +83,10 @@ class LoginedFragment: Fragment() {
 
 //        UserAccountImageView.setImageURI(Uri.parse(user!!.photoUrl.toString()))
 
+        val name = UserNameTextInputEditText.text.toString()
         SaveChangesButton.setOnClickListener {
-            docRef.set(hashMapOf("name" to UserNameTextInputEditText.text.toString()))
+
+            docRef.set(hashMapOf("name" to name), SetOptions.merge())
                 .addOnSuccessListener {
                     Log.d("firestore", "change successfully")
                     Toast.makeText(requireContext(), "変更を保存しました", Toast.LENGTH_SHORT).show()
