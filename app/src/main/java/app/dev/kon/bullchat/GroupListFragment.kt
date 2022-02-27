@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_group_list.*
 
@@ -41,6 +42,7 @@ class GroupListFragment : Fragment() {
             }
         }
         val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
         val idPref = activity?.getSharedPreferences("DataStore", Context.MODE_PRIVATE)?: return
         val idSet = idPref.getStringSet("join_groups", mutableSetOf())
         var adapter = GroupListAdapter(groups, requireActivity())

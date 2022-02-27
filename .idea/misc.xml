@@ -28,6 +28,7 @@
         <entry key="app/src/main/res/layout/fragment_board.xml" value="0.1887031408308004" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.2586050724637681" />
         <entry key="app/src/main/res/layout/fragment_group_list.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/layout/fragment_logined.xml" value="0.2971014492753623" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/item_board_data_cell.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/item_chat_data_cell.xml" value="0.5159444173177083" />
